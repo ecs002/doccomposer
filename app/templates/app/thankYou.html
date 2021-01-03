@@ -1,0 +1,19 @@
+{% extends "app/formLayout.html" %}
+{% load static %}
+
+{% block formbody %}
+
+<div class="banner theme-bg">
+    <div class="d-flex justify-content-center">
+        <h1 class="text-center">Thank you for using DocComposer</h1>
+    </div>
+    <div class="d-flex mt-4 justify-content-center">
+        <a class="end-page-link" href="{% url 'app:getDocument' uuidStr=document.uuid %}"><h5>Download Your Document</h5></a>
+    </div>
+</div>
+<div class="px-2">
+  <div id="form-view" class="container standard-padding">
+  </div>
+</div>
+    
+{% endblock %}

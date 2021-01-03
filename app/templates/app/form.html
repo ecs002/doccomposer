@@ -1,0 +1,78 @@
+{% extends "app/formLayout.html" %}
+{% load static %}
+
+{% block formbody %}
+
+<div class="banner theme-bg">
+    <div class="d-flex justify-content-center">
+        <h1>{{name}}</h1>
+    </div>
+</div>
+<div class="px-2">
+  <div id="form-view" class="container standard-padding">
+    <form class="needs-validation" {% if isLive %}action="{% url 'app:form' uuidStr=uuid %}" method="post"{% endif %} novalidate>
+        {% csrf_token %}
+        {% for queryItem in docData %}
+            {% if queryItem.type == 'Header' %}
+                <!-- header -->
+                <div class="field-group" id="{{queryItem.uuid}}">
+                    <div class="header">
+                    {{queryItem.prompt}}
+                    </div>
+                </div>
+            {% elif queryItem.type == 'FreeText' %}
+                <!-- text -->
+                <div class="field-group" id="{{queryItem.uuid}}">
+                    <label class="mb-2">
+                        <span class="field-number">{{queryItem.questionIndex}}.</span><span class="field-title">{{queryItem.prompt}}</span>{% if not queryItem.required %}<span class="field-optional">(optional)</span>{% endif %}
+                    </label>
+                    <textarea class="form-control" name='item{{ forloop.counter|add:"-1" }}_FreeText' rows="3" {% if queryItem.required %}required{% endif %}></textarea>
+                    {% if queryItem.required %}<div class="invalid-feedback">This field is required</div>{% endif %}
+                </div>                    
+            {% elif queryItem.type == 'Selection' %}
+                {% if queryItem.multipleSelect %}
+                    <!-- checkbox -->
+                    <div class="field-group" id="{{queryItem.uuid}}">
+                        <label class="mb-2">
+                            <span class="field-number">{{queryItem.questionIndex}}.</span><span class="field-title">{{queryItem.prompt}}</span>{% if not queryItem.required %}<span class="field-optional">(optional)</span>{% endif %}
+                        </label>
+                        {% for responseOption in queryItem.responseOptions %}
+                            <div class="form-check mb-2">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" id="{{responseOption.uuid}}" type="checkbox" name='item{{forloop.parentloop.counter|add:"-1"}}_Selection' value="{{responseOption.option}}">
+                                    {{responseOption.option}}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <!-- radio -->
+                    <div class="field-group" id="{{queryItem.uuid}}">
+                        <label class="mb-2">
+                            <span class="field-number">{{queryItem.questionIndex}}.</span><span class="field-title">{{queryItem.prompt}}</span>{% if not queryItem.required %}<span class="field-optional">(optional)</span>{% endif %}
+                        </label>
+                        {% for responseOption in queryItem.responseOptions %}
+                            <div class="form-check mb-2">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" id="{{responseOption.uuid}}" type="radio" name='item{{forloop.parentloop.counter|add:"-1"}}_Selection' value="{{responseOption.option}}" {% if queryItem.required %}required{% endif %}>
+                                    {{responseOption.option}}
+                                    {% if loop.last and queryItem.required %}<div class="invalid-feedback">This field is required</div>{% endif %}
+                                </label>          
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-block theme-bg btn-lg mb-3" {% if not isLive %}disabled{% endif %}>SUBMIT</button>
+        </div>
+    </form>
+  </div>
+</div>
+    
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'app/form.js' %}"></script>
+{% endblock %}

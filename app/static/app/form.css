@@ -1,0 +1,81 @@
+:root {
+    --theme: #048665;
+}
+
+@media screen and (max-width: 768px) {
+    .banner {
+      padding: 50px 0;
+    }
+  }
+  
+@media screen and (min-width: 768px) {
+.banner {
+    padding: 70px 0;
+}
+}
+
+.banner{
+    margin-bottom: 62px;
+}
+
+.standard-padding {
+    max-width: 730px;
+    margin: 0 auto 30px;
+} 
+
+.banner a{
+    color: #fff!important;
+}
+
+.banner a:hover{
+    color: lightgray!important;
+}
+
+
+.theme-bg {
+    background-color: var(--theme);
+    color: #fff!important;
+}
+
+.theme-font {
+    color: var(--theme)!important;
+}
+
+.theme-border {
+    color: var(--theme)!important;
+}
+
+.header{
+    border-bottom: 3px solid;
+    border-color: var(--theme);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--theme);
+}
+
+.field-group{
+    margin-bottom: 40px;
+}
+
+
+.field-group .field-number {
+    font-size: 15px;
+    font-weight: 600;
+    color: #323232;
+    margin-right: 15px;
+}
+
+.field-group .field-title {
+    overflow-wrap: break-word;
+    font-size: 18px;
+    font-weight: 600;
+    color: #323232;
+}
+
+.field-group .field-optional {
+    font-size: 15px;
+    font-weight: 400;
+    color: #b8b8b8;
+    margin-left: 10px;
+}
+

@@ -1,0 +1,173 @@
+@media screen and (max-width: 768px) {
+  .hide-mobile {
+    display: none!important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hide-desktop {
+    display: none!important;
+  }
+}
+
+.standard-padding {
+  max-width: 730px;
+  margin: 0 auto 30px;
+}
+
+.divider {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  height: 1px;
+  border: .5px solid #dcdcdc;
+}
+
+.form-control{
+  border: 1px solid #b8b8b8;
+}
+
+.form-select{
+  border: 1px solid #b8b8b8;
+}
+
+.card{
+  border: 1px solid #b8b8b8;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 112.667px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  max-width: 300px;
+}
+
+.material-icons.md-32 { font-size: 32px; }
+
+.card.query-field,.card.logic-field {
+  border: 1px solid black;
+  border-radius: .25rem;
+}
+
+.card.query-field-drag{
+  background-color: rgb(4,170,128);
+  color:white;
+  opacity:0.5;
+}
+
+.card.query-field:hover,.card.logic-field:hover{
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgb(4,170,128);
+  color:white;
+}
+
+.card.query-field .delete-icon:hover,.card.query-field .reorder-icon:hover,.card.logic-field .delete-icon:hover{
+  opacity: 0.7;
+}
+
+.form-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: white;
+}
+
+.form-title {
+  max-width: 100%;
+}
+
+.form-last-saved {
+  font-size:12px;
+  color:rgb(151,151,151);
+}
+
+.form-back-button {
+  background-color: white;
+}
+
+.form-preview-button{
+  opacity: 0.8;
+}
+
+.truncate-ellipses{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.icon-span{
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 2px;
+  left: 0px;
+}
+
+.add-icon{
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 4px;
+  left: 0px;
+}
+
+.add-button{
+  position:fixed;
+  display:flex;
+  bottom:10px;
+  width: 186px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.label-text{
+  font-weight: 600;
+  font-size:1.1rem;
+}
+
+.label-text-active{
+  font-weight: 700;
+  font-size:1.1rem;
+  text-transform: uppercase;
+  color: #04aa80;
+}
+
+.label-text-inactive{
+  font-weight: 700;
+  font-size:1.1rem;
+  text-transform: uppercase;
+  color: #b22222;
+}
+
+/* 
+ * Navbar
+ */
+
+.nav-scroller {
+  position: relative;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+

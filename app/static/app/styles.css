@@ -1,0 +1,52 @@
+.emoji {font-size: 72pt;}
+
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-48 { font-size: 48px; }
+
+label{
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+p.header{
+    font-weight:600;
+}
+
+.form-header {
+    line-height: 1;
+    border-bottom: 1px solid #e5e5e5;
+    z-index: 999;
+}
+
+a.delete:hover{
+    z-index:999999;
+    color:red;
+    opacity:0.7;
+}
+  
+
+.card.add:hover{
+    opacity: 0.7;
+}
+
+.card.doc:hover {
+    font-weight: bold;
+    background-color: rgb(4,170,128);
+    color:white;
+  }
+
+.inactive{
+    opacity:0.8;
+}
+  
+.truncate-ellipses{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+a.delete{
+    z-index:999999;
+    color:darkgray;
+}
+

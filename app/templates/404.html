@@ -1,0 +1,9 @@
+{% extends "app/layout.html" %}
+{% load static %}
+{% block body %}
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <h2 class="text-center emoji">🤷‍♂️🤷‍♀️</h2>
+        <h2 class="text-center mb-4">URL Not Found</h2>
+        <a href="{% url 'app:docs' %}" class="btn btn-light btn-lg">&laquo; Back to your docs</a>
+    </div>
+{% endblock %}

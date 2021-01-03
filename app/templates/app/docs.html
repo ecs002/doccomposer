@@ -1,0 +1,31 @@
+{% extends "app/layout.html" %}
+{% load static %}
+{% block body %}
+
+  <div class="row row-cols-1 row-cols-md-6 g-4">
+    <div class="col">
+      <div class="card bg-primary add h-100">
+        <div class="card-body">
+          <p class = "text-center"><i class="material-icons md-light md-48">add</i></p>
+          <p class="card-text text-white text-center">Create New Document</p>
+          <a href="{% url 'app:createDoc' %}" class="stretched-link"></a>
+        </div>
+      </div>
+    </div>
+    {% for document in documents %}
+    <div class="col">
+      <div class="card text-center doc h-100">
+        <div class="card-body {% if not document.active %}inactive{% endif %}">
+          <p class="truncate-ellipses header">{{document.name}}</p>
+          <p class="card-text small">{{document.updatedTime|date:"h:i A, d/m/y"}}</p>
+          <p class="card-text small">{% if document.active %}Published{% else %}Inactive{% endif %}</p>
+          <a href="{% url 'app:editDoc' uuidStr=document.uuid%}" class="stretched-link"></a>
+          <!-- <a href="#" class="delete"><i class="material-icons float-end">delete</i></a> -->
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "app/layout.html" %}
+{% load static %}
+{% block body %}
+    <div class="d-grid gap-2 col-md-6 mx-auto">
+        <h2 class="text-center mb-4">Create a New Document</h2>
+        <form action="{% url 'app:createDoc' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <div class="d-grid gap-2 mt-4">
+                <input class="btn btn-primary btn-lg mt-4" type="submit" value="Start Configuring">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
